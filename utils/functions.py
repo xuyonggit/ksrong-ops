@@ -26,7 +26,7 @@ def create_app():
     app.register_blueprint(blueprint=main, url_prefix='/')
     app.register_blueprint(blueprint=tools, url_prefix='/tools')
     # 配置mysql数据库
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://ksrong-ops:Sklc123456-@140.143.149.154:3306/ksrong-ops'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://ksrong-ops:Sklc123456-@mysql.ksrong-ops.com:3306/ksrong-ops'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     # 设置session密钥
@@ -34,7 +34,7 @@ def create_app():
     # 设置连接的redis数据库 默认连接到本地6379
     app.config['SESSION_TYPE'] = 'redis'
     # 设置远程
-    app.config['SESSION_REDIS'] = redis.Redis(host='140.143.149.154', port=6379)
+    app.config['SESSION_REDIS'] = redis.Redis(host='redis.ksrong-ops.com', port=6379)
     # 初始化db
 
     db.init_app(app=app)
