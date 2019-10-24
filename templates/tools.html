@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block style %}
+
+{% endblock %}
+{% block data %}
+	<script>
+    document.getElementById("tools").className += "active";
+  </script>
+<div class="container-fluid">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="jumbotron well">
+				<h1>
+					公告：
+				</h1>
+				<p>
+					测试环境在2019-10-23日 暂停使用，恢复时间未定。
+				</p>
+
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="col-md-4">
+				<div class="panel panel-default">
+          <div class="panel-heading">随机密码生成</div>
+          <div class="panel-body">
+	          <div style="height: 300px;">
+	          <form id="make-passwd">
+	          <label class="col-sm-2 control-label" style="width: 20%">复杂级别：</label>
+	          <div class="col-sm-offset-2">
+              <label checkbox-inline>
+                <input type="radio" name="passwd_level" id="passwd_level1" value="1"> 级别一
+              </label>
+		          <label checkbox-inline>
+	              <input type="radio" name="passwd_level" id="passwd_level2" value="2" checked> 级别二
+		          </label>
+		          <label checkbox-inline>
+	              <input type="radio" name="passwd_level" id="passwd_level3" value="3"> 级别三
+              </label>
+		          <div class="pull-right popover-options" style="width: 50%;">
+			          <a href="#" data-container="body" data-toggle="popover" data-placement="right" title="<h4>提示</h4>"
+			          data-content="级别一：小写字母+数字<br>级别二：大写字母+小写字母+数字<br>级别三：大写字母+小写字母+数字+特殊符号"
+			          ><i class="glyphicon glyphicon-question-sign"></i></a>
+
+								<!-- Generated markup by the plugin -->
+
+		          </div>
+            </div><br>
+						<label class="col-sm-2 control-label" style="width: 20%;margin-top:1.5%">密码长度：</label>
+	          <div class="col-sm-offset-2" style="margin-left: 20%;margin-right: 60%;">
+							<input type="text" name="passwd_num" class="form-control" style="height: 30px;" id="passwd_num" value="18">
+						</div><br>
+		        <label class="col-sm-2 control-label" style="width: 20%;margin-top:1.5%;margin-bottom:2%">快速选择：</label>
+{#		        <div class="col-sm-offset-2" style="margin-left: 20%;margin-right: 60%;">#}
+						<button type="button" class="btn btn-info" style="height: 30px;" onclick="quick_choice_passwd(1)">服务器密码</button>
+			      <button type="button" class="btn btn-info" style="height: 30px;" onclick="quick_choice_passwd(2)">数据库密码</button>
+			      <button type="button" class="btn btn-info" style="height: 30px;" onclick="quick_choice_passwd(3)">普通密码</button>
+{#		        </div>#}
+	          <br>
+	          <button type="button" class="btn btn-primary btn-lg btn-block" id="passwd_make" onclick="Passwd_make()">生成</button>
+	          <br></form>
+	          <div class="form-group">
+              <label for="passwd_result">结果</label>
+              <input type="text" class="form-control" id="passwd_result" value="">
+            </div>
+	          </div>
+          </div>
+				</div>
+		</div>
+		<div class="col-md-4">
+				<div class="panel panel-default">
+          <div class="panel-heading">空车位</div>
+          <div class="panel-body">
+						<div style="height: 300px;">123</div>
+          </div>
+				</div>
+		</div>
+		<div class="col-md-4">
+				<div class="panel panel-default">
+          <div class="panel-heading">空车位</div>
+          <div class="panel-body">
+	          <div style="height: 300px;">456</div>
+          </div>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="col-md-4">
+				<div class="panel panel-default">
+          <div class="panel-heading">空车位</div>
+          <div class="panel-body">
+	          <div style="height: 300px;">
+		          000
+	          </div>
+          </div>
+				</div>
+		</div>
+		<div class="col-md-4">
+				<div class="panel panel-default">
+          <div class="panel-heading">空车位</div>
+          <div class="panel-body">
+						<div style="height: 300px;">123</div>
+          </div>
+				</div>
+		</div>
+		<div class="col-md-4">
+				<div class="panel panel-default">
+          <div class="panel-heading">空车位</div>
+          <div class="panel-body">
+	          <div style="height: 300px;">456</div>
+          </div>
+		</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript" src="/static/js/tools.js"></script>
+{% endblock %}
