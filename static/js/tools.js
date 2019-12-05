@@ -13,7 +13,6 @@ function Passwd_make() {
 		success: function (data) {
 			var json = eval("("+data+")");
 			var result = json.passwd;
-			console.log(result);
 			$("#passwd_result").val(result);
 		}
 	})
@@ -38,3 +37,22 @@ $(function () {
 		$(this).addClass();
 	})
 });
+
+function Finance_check() {
+	var param = $("#finance_check").serializeArray();
+	$.ajax({
+		url: "/tools/finance_check/",
+		method: "post",
+		data: param,
+		dateType: "json",
+		success: function (data) {
+			var json = eval("("+data+")");
+			var r_state = json.state;
+			if (r_state == 'success'){
+				$("#finance_result").val(json.mon);
+			} else {
+				swal("ERROR", json.msg, "error");
+			}
+		}
+	})
+}

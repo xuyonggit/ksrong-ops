@@ -29,7 +29,7 @@
           <div class="panel-body">
 	          <div style="height: 300px;">
 	          <form id="make-passwd">
-	          <label class="col-sm-2 control-label label-1">复杂级别：</label>
+	          <label class="col-sm-2 control-label label-1" style="width: 30%;">复杂级别：</label>
 	          <div class="col-sm-offset-2">
               <label checkbox-inline>
                 <input type="radio" name="passwd_level" id="passwd_level1" value="1"> 级别一
@@ -40,7 +40,7 @@
 		          <label checkbox-inline>
 	              <input type="radio" name="passwd_level" id="passwd_level3" value="3"> 级别三
               </label>
-		          <div class="pull-right popover-options" style="width: 30%;">
+		          <div class="pull-right popover-options" style="width: 10%;">
 			          <a href="#" data-container="body" data-toggle="popover" data-placement="right" title="<h4>提示</h4>"
 			          data-content="级别一：小写字母+数字<br>级别二：大写字母+小写字母+数字<br>级别三：大写字母+小写字母+数字+特殊符号"
 			          ><i class="glyphicon glyphicon-question-sign"></i></a>
@@ -49,11 +49,11 @@
 
 		          </div>
             </div><br>
-						<label class="col-sm-2 control-label label-1" style="margin-top:1.5%">密码长度：</label>
-	          <div class="col-sm-offset-2" style="margin-left: 20%;margin-right: 60%;">
+						<label class="col-sm-2 control-label label-1" style="margin-top:1.5%;width: 30%;">密码长度：</label>
+	          <div class="col-sm-offset-2">
 							<input type="text" name="passwd_num" class="form-control" style="height: 30px;width:70%;" id="passwd_num" value="18">
 						</div><br>
-		        <label class="col-sm-2 control-label label-1" style="margin-top:1.5%;margin-bottom:2%">快速选择：</label>
+		        <label class="col-sm-2 control-label label-1" style="margin-top:1.5%;margin-bottom:2%;width: 30%;">快速选择：</label>
 {#		        <div class="col-sm-offset-2" style="margin-left: 20%;margin-right: 60%;">#}
 						<button type="button" class="btn btn-info" style="height: 30px;" onclick="quick_choice_passwd(1)">服务器密码</button>
 			      <button type="button" class="btn btn-info" style="height: 30px;" onclick="quick_choice_passwd(2)">数据库密码</button>
@@ -72,9 +72,39 @@
 		</div>
 		<div class="col-md-4">
 				<div class="panel panel-default">
-          <div class="panel-heading">空车位</div>
+          <div class="panel-heading">智能定投计算</div>
           <div class="panel-body">
-						<div style="height: 300px;">123</div>
+						<div style="height: 300px;">
+							<form id="finance_check">
+								<label class="col-sm-2 control-label label-1" style="margin-top:1.5%;width: 30%;">当前总资产：</label>
+	              <div class="input-group">
+                  <span class="input-group-addon">$</span>
+		                <input type="text" class="form-control" name="finance_mon" id="finance_mon" placeholder="输入整数">
+                  <span class="input-group-addon">.00</span>
+	              </div><br>
+
+								<label class="col-sm-2 control-label label-1" style="margin-top:1.5%;width: 30%;">当前收益率：</label>
+	              <div class="input-group">
+                  <input type="text" class="form-control" placeholder="正负值，2位小数或整数" name="finance_shouyilv" id="finance_shouyilv">
+                  <span class="input-group-addon" id="basic-addon2">%</span>
+								</div><br>
+
+								<label class="col-sm-2 control-label label-1" style="margin-top:1.5%;width: 30%;">计划定投额：</label>
+	              <div class="input-group">
+                  <span class="input-group-addon">$</span>
+		                <input type="text" class="form-control" name="finance_dingtoue" id="finance_dingtoue" placeholder="输入整数">
+                  <span class="input-group-addon">.00</span>
+	              </div><br>
+
+								<button type="button" class="btn btn-primary btn-lg btn-block" onclick="Finance_check()">我本次需要续投多少？</button>
+							</form><br>
+							<label class="col-sm-2 control-label label-1" style="margin-top:1.5%;width: 30%;">您本次需要投入：</label>
+	              <div class="input-group">
+                  <span class="input-group-addon">$</span>
+		                <input type="text" class="form-control" id="finance_result">
+                  <span class="input-group-addon">.00</span>
+	              </div>
+						</div>
           </div>
 				</div>
 		</div>
