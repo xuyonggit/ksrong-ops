@@ -4,7 +4,6 @@ from flask import Flask
 from App.user_views import user_blueprint
 from App.models import db
 from flask import url_for, redirect, session
-from functools import wraps
 from App.views import main
 from App.tools_views import tools
 
@@ -26,15 +25,15 @@ def create_app():
     app.register_blueprint(blueprint=main, url_prefix='/')
     app.register_blueprint(blueprint=tools, url_prefix='/tools')
     # 配置mysql数据库
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://ksrong-ops:Sklc123456-@mysql.ksrong-ops.com:3306/ksrong-ops'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://ksrong-ops:Sklc123456-@mysql.ksrong-ops.com:3306/ksrong-ops?charset=utf8mb4'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     # 设置session密钥
-    app.config['SECRET_KEY'] = 'secret_key'
+    app.config['SECRET_KEY'] = 'sdertyuhgfd23456q'
     # 设置连接的redis数据库 默认连接到本地6379
     app.config['SESSION_TYPE'] = 'redis'
     # 设置远程
-    app.config['SESSION_REDIS'] = redis.Redis(host='redis.ksrong-ops.com', port=6379)
+    app.config['SESSION_REDIS'] = redis.Redis(host='redis.ksrong-ops.com', port=6379, password='J]5#Umg_th3mYq6')
     # 初始化db
 
     db.init_app(app=app)
@@ -42,17 +41,3 @@ def create_app():
     return app
 
 
-def is_login(func):
-    """
-    定义登陆注册验证得装饰器
-    :param func:
-    :return: check_login
-    """
-    @wraps(func)
-    def check_login(*args, **kwargs):
-        user_id = session.get('user_id')
-        if user_id:
-            return func(*args, **kwargs)
-        else:
-            return redirect(url_for('user.login'))
-    return check_login

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>OPS</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/mystyle.css">
+    <link rel="stylesheet" href="/static/css/sweetalert2.css">
+	  <script src="/static/js/sweetalert2.js"></script>
+</head>
+<body>
+<form style="margin-left:40%;margin-top:10%;">
+	<div class="form-group">
+		<label for="user" stype="display:inline;">账户：</label>
+			<input type="text" class="form-control" id="user" style="display:inline;width:200px;"/>
+		</div>
+	<div class="form-group">
+		<label for="password" style="display:inline;">密码：</label>
+			<input type="text" class="form-control" id="password" style="display:inline;width:200px;"/>
+	</div>
+	<button type="button" class="btn btn-primary" onclick="login()">登录</button>
+	<button type="button" class="btn btn-primary" onclick="register()">注册</button>
+	{% if msg %}
+		<div class="alert alert-danger" role="alert">{{ msg }}</div>
+	{% endif %}
+</form>
+<script type="text/javascript" src="/static/js/login.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
